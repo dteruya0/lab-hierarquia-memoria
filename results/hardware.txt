@@ -1,0 +1,75 @@
+### lscpu
+Arquitetura:                             x86_64
+Modo(s) operacional da CPU:              32-bit, 64-bit
+Address sizes:                           39 bits physical, 48 bits virtual
+Ordem dos bytes:                         Little Endian
+CPU(s):                                  12
+Lista de CPU(s) on-line:                 0-11
+ID de fornecedor:                        GenuineIntel
+Nome do modelo:                          Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+Família da CPU:                          6
+Modelo:                                  165
+Thread(s) per núcleo:                    2
+Núcleo(s) por soquete:                   6
+Soquete(s):                              1
+Step:                                    2
+CPU MHz máx.:                            2600,0000
+CPU MHz mín.:                            800,0000
+BogoMIPS:                                5199.98
+Opções:                                  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi pku ospke md_clear flush_l1d arch_capabilities ibpb_exit_to_user
+Virtualização:                           VT-x
+cache de L1d:                            192 KiB (6 instances)
+cache de L1i:                            192 KiB (6 instances)
+cache de L2:                             1,5 MiB (6 instances)
+cache de L3:                             12 MiB (1 instance)
+Nó(s) de NUMA:                           1
+CPU(s) de nó0 NUMA:                      0-11
+Vulnerability Gather data sampling:      Mitigation; Microcode
+Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX disabled
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; Enhanced IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+Vulnerability Srbds:                     Mitigation; Microcode
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB before exit to userspace
+
+### Caches (lscpu -C)
+NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL  SETS PHY-LINE COHERENCY-SIZE
+L1d       32K     192K    8 Data            1    64        1             64
+L1i       32K     192K    8 Instruction     1    64        1             64
+L2       256K     1,5M    4 Unified         2  1024        1             64
+L3        12M      12M   16 Unified         3 12288        1             64
+
+### Caches (sysfs: nível, tipo, tamanho, vias, linha)
+L1 Data: 32K, 8-way, linha 64 B
+L1 Instruction: 32K, 8-way, linha 64 B
+L2 Unified: 256K, 4-way, linha 64 B
+L3 Unified: 12288K, 16-way, linha 64 B
+
+### Memória
+               total       usada       livre    compart.  buff/cache  disponível
+Mem.:          7,6Gi       3,5Gi       716Mi       584Mi       3,4Gi       3,2Gi
+Swap:          2,0Gi       407Mi       1,6Gi
+(velocidade da RAM: rode 'sudo dmidecode -t memory | grep -i speed')
+
+### SO / kernel
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+6.8.0-138-generic
+
+### GCC
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+
+### Valgrind
+valgrind-3.18.1
+
+### perf
+perf version 6.8.12

@@ -1,0 +1,390 @@
+=== Compilação ===
+gcc -O0 -Wall -Wextra -std=c11 varredura_linha.c -o varredura_linha_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 varredura_coluna.c -o varredura_coluna_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_padrao.c -o matmul_padrao_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_bloco.c -o matmul_bloco_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_pthreads.c -o matmul_pthreads_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_pthreads_bloco.c -o matmul_pthreads_bloco_O0 -pthread
+gcc -O3 -Wall -Wextra -std=c11 varredura_linha.c -o varredura_linha_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 varredura_coluna.c -o varredura_coluna_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_padrao.c -o matmul_padrao_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_bloco.c -o matmul_bloco_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_pthreads.c -o matmul_pthreads_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_pthreads_bloco.c -o matmul_pthreads_bloco_O3 -pthread
+=== Caracterização do hardware -> results/hardware.txt ===
+### Caches (sysfs: nível, tipo, tamanho, vias, linha)
+L1 Data: 32K, 8-way, linha 64 B
+L1 Instruction: 32K, 8-way, linha 64 B
+L2 Unified: 256K, 4-way, linha 64 B
+L3 Unified: 12288K, 16-way, linha 64 B
+
+### Memória
+=== Item 2: varredura linha x coluna ===
+[Varredura Linha] N: 512 | Pares: 131072 | Tempo (min): 0.000726 s | Tempo (media): 0.000733 s | Reps: 5
+[Varredura Coluna] N: 512 | Pares: 131072 | Tempo (min): 0.001112 s | Tempo (media): 0.001151 s | Reps: 5
+[Varredura Linha] N: 1024 | Pares: 524288 | Tempo (min): 0.003071 s | Tempo (media): 0.003277 s | Reps: 5
+[Varredura Coluna] N: 1024 | Pares: 524288 | Tempo (min): 0.005017 s | Tempo (media): 0.005495 s | Reps: 5
+[Varredura Linha] N: 2048 | Pares: 2097152 | Tempo (min): 0.012103 s | Tempo (media): 0.013415 s | Reps: 5
+[Varredura Coluna] N: 2048 | Pares: 2097152 | Tempo (min): 0.048758 s | Tempo (media): 0.048958 s | Reps: 5
+[Varredura Linha] N: 4096 | Pares: 8388608 | Tempo (min): 0.048089 s | Tempo (media): 0.048314 s | Reps: 5
+[Varredura Coluna] N: 4096 | Pares: 8388608 | Tempo (min): 0.224064 s | Tempo (media): 0.225023 s | Reps: 5
+[Varredura Linha] N: 8192 | Pares: 33554432 | Tempo (min): 0.193406 s | Tempo (media): 0.193516 s | Reps: 5
+[Varredura Coluna] N: 8192 | Pares: 33554432 | Tempo (min): 0.954850 s | Tempo (media): 0.955945 s | Reps: 5
+[Varredura Linha] N: 512 | Pares: 131072 | Tempo (min): 0.000172 s | Tempo (media): 0.000184 s | Reps: 5
+[Varredura Coluna] N: 512 | Pares: 131072 | Tempo (min): 0.000861 s | Tempo (media): 0.001008 s | Reps: 5
+[Varredura Linha] N: 1024 | Pares: 524288 | Tempo (min): 0.000636 s | Tempo (media): 0.000735 s | Reps: 5
+[Varredura Coluna] N: 1024 | Pares: 524288 | Tempo (min): 0.002855 s | Tempo (media): 0.003378 s | Reps: 5
+[Varredura Linha] N: 2048 | Pares: 2097152 | Tempo (min): 0.003250 s | Tempo (media): 0.003533 s | Reps: 5
+[Varredura Coluna] N: 2048 | Pares: 2097152 | Tempo (min): 0.029802 s | Tempo (media): 0.029998 s | Reps: 5
+[Varredura Linha] N: 4096 | Pares: 8388608 | Tempo (min): 0.012800 s | Tempo (media): 0.013055 s | Reps: 5
+[Varredura Coluna] N: 4096 | Pares: 8388608 | Tempo (min): 0.151451 s | Tempo (media): 0.151971 s | Reps: 5
+[Varredura Linha] N: 8192 | Pares: 33554432 | Tempo (min): 0.051162 s | Tempo (media): 0.051392 s | Reps: 5
+[Varredura Coluna] N: 8192 | Pares: 33554432 | Tempo (min): 0.720091 s | Tempo (media): 0.722513 s | Reps: 5
+=== Item 3: matmul padrão x bloco (tempo nativo) ===
+[Matmul Padrão] N: 512 | Tempo: 0.8719 s | GFLOPS: 0.31 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Blocado] N: 512 | Bloco B: 64 | Tempo: 0.6040 s | GFLOPS: 0.44 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Padrão] N: 1024 | Tempo: 7.2545 s | GFLOPS: 0.30 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 4.7501 s | GFLOPS: 0.45 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Padrão] N: 1536 | Tempo: 36.9861 s | GFLOPS: 0.20 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Blocado] N: 1536 | Bloco B: 64 | Tempo: 15.9445 s | GFLOPS: 0.45 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Padrão] N: 512 | Tempo: 0.2974 s | GFLOPS: 0.90 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Blocado] N: 512 | Bloco B: 64 | Tempo: 0.0745 s | GFLOPS: 3.60 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Padrão] N: 1024 | Tempo: 2.5354 s | GFLOPS: 0.85 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 0.6016 s | GFLOPS: 3.57 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Padrão] N: 1536 | Tempo: 17.9263 s | GFLOPS: 0.40 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Blocado] N: 1536 | Bloco B: 64 | Tempo: 2.0693 s | GFLOPS: 3.50 | Checksum: 3.823547e+18 | Verificação: OK
+=== Item 3: calibração do tamanho do bloco (N=1024, -O3) ===
+[Matmul Blocado] N: 1024 | Bloco B: 8 | Tempo: 0.9396 s | GFLOPS: 2.29 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 16 | Tempo: 0.7218 s | GFLOPS: 2.98 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 32 | Tempo: 0.6569 s | GFLOPS: 3.27 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 0.6679 s | GFLOPS: 3.22 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 128 | Tempo: 0.6318 s | GFLOPS: 3.40 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 256 | Tempo: 0.5590 s | GFLOPS: 3.84 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 512 | Tempo: 0.5209 s | GFLOPS: 4.12 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 1024 | Tempo: 0.6239 s | GFLOPS: 3.44 | Checksum: 3.353782e+17 | Verificação: OK
+=== Item 3: cachegrind (N em: 512 1024 1536) ===
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_padrao_O0 512
+==14270== Cachegrind, a cache and branch-prediction profiler
+==14270== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==14270== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14270== Command: ./matmul_padrao_O0 512
+==14270== 
+--14270-- warning: L3 cache found, using its data for the LL simulation.
+--14270-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--14270-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 512 | Tempo: 23.6728 s | GFLOPS: 0.01 | Checksum: 5.226394e+15 | Verificação: OK
+==14270== 
+==14270== I   refs:      4,325,572,412
+==14270== I1  misses:            1,573
+==14270== LLi misses:            1,542
+==14270== I1  miss rate:          0.00%
+==14270== LLi miss rate:          0.00%
+==14270== 
+==14270== D   refs:      2,029,846,877  (1,891,680,465 rd   + 138,166,412 wr)
+==14270== D1  misses:      134,972,814  (  134,611,700 rd   +     361,114 wr)
+==14270== LLd misses:          100,295  (        1,393 rd   +      98,902 wr)
+==14270== D1  miss rate:           6.6% (          7.1%     +         0.3%  )
+==14270== LLd miss rate:           0.0% (          0.0%     +         0.1%  )
+==14270== 
+==14270== LL refs:         134,974,387  (  134,613,273 rd   +     361,114 wr)
+==14270== LL misses:           101,837  (        2,935 rd   +      98,902 wr)
+==14270== LL miss rate:            0.0% (          0.0%     +         0.1%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_bloco_O0 512 64
+==14326== Cachegrind, a cache and branch-prediction profiler
+==14326== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==14326== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14326== Command: ./matmul_bloco_O0 512 64
+==14326== 
+--14326-- warning: L3 cache found, using its data for the LL simulation.
+--14326-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--14326-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Blocado] N: 512 | Bloco B: 64 | Tempo: 24.0607 s | GFLOPS: 0.01 | Checksum: 5.226394e+15 | Verificação: OK
+==14326== 
+==14326== I   refs:      5,710,026,787
+==14326== I1  misses:            1,576
+==14326== LLi misses:            1,545
+==14326== I1  miss rate:          0.00%
+==14326== LLi miss rate:          0.00%
+==14326== 
+==14326== D   refs:      2,590,806,298  (2,449,198,532 rd   + 141,607,766 wr)
+==14326== D1  misses:       17,467,790  (   17,368,817 rd   +      98,973 wr)
+==14326== LLd misses:          100,295  (        1,393 rd   +      98,902 wr)
+==14326== D1  miss rate:           0.7% (          0.7%     +         0.1%  )
+==14326== LLd miss rate:           0.0% (          0.0%     +         0.1%  )
+==14326== 
+==14326== LL refs:          17,469,366  (   17,370,393 rd   +      98,973 wr)
+==14326== LL misses:           101,840  (        2,938 rd   +      98,902 wr)
+==14326== LL miss rate:            0.0% (          0.0%     +         0.1%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_padrao_O0 1024
+==14391== Cachegrind, a cache and branch-prediction profiler
+==14391== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==14391== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14391== Command: ./matmul_padrao_O0 1024
+==14391== 
+--14391-- warning: L3 cache found, using its data for the LL simulation.
+--14391-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--14391-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 1024 | Tempo: 211.7763 s | GFLOPS: 0.01 | Checksum: 3.353782e+17 | Verificação: OK
+==14391== 
+==14391== I   refs:      34,481,583,696
+==14391== I1  misses:             1,571
+==14391== LLi misses:             1,564
+==14391== I1  miss rate:           0.00%
+==14391== LLi miss rate:           0.00%
+==14391== 
+==14391== D   refs:      16,172,262,848  (15,082,774,282 rd   + 1,089,488,566 wr)
+==14391== D1  misses:     1,077,932,431  ( 1,076,489,973 rd   +     1,442,458 wr)
+==14391== LLd misses:           919,499  (       394,652 rd   +       524,847 wr)
+==14391== D1  miss rate:            6.7% (           7.1%     +           0.1%  )
+==14391== LLd miss rate:            0.0% (           0.0%     +           0.0%  )
+==14391== 
+==14391== LL refs:        1,077,934,002  ( 1,076,491,544 rd   +     1,442,458 wr)
+==14391== LL misses:            921,063  (       396,216 rd   +       524,847 wr)
+==14391== LL miss rate:             0.0% (           0.0%     +           0.0%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_bloco_O0 1024 64
+==14575== Cachegrind, a cache and branch-prediction profiler
+==14575== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==14575== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14575== Command: ./matmul_bloco_O0 1024 64
+==14575== 
+--14575-- warning: L3 cache found, using its data for the LL simulation.
+--14575-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--14575-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 193.1346 s | GFLOPS: 0.01 | Checksum: 3.353782e+17 | Verificação: OK
+==14575== 
+==14575== I   refs:      45,582,403,274
+==14575== I1  misses:             1,578
+==14575== LLi misses:             1,571
+==14575== I1  miss rate:           0.00%
+==14575== LLi miss rate:           0.00%
+==14575== 
+==14575== D   refs:      20,673,583,670  (19,553,416,472 rd   + 1,120,167,198 wr)
+==14575== D1  misses:       139,069,839  (   138,675,954 rd   +       393,885 wr)
+==14575== LLd misses:           911,436  (       517,595 rd   +       393,841 wr)
+==14575== D1  miss rate:            0.7% (           0.7%     +           0.0%  )
+==14575== LLd miss rate:            0.0% (           0.0%     +           0.0%  )
+==14575== 
+==14575== LL refs:          139,071,417  (   138,677,532 rd   +       393,885 wr)
+==14575== LL misses:            913,007  (       519,166 rd   +       393,841 wr)
+==14575== LL miss rate:             0.0% (           0.0%     +           0.0%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_padrao_O0 1536
+==14799== Cachegrind, a cache and branch-prediction profiler
+==14799== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==14799== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14799== Command: ./matmul_padrao_O0 1536
+==14799== 
+--14799-- warning: L3 cache found, using its data for the LL simulation.
+--14799-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--14799-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 1536 | Tempo: 753.4271 s | GFLOPS: 0.01 | Checksum: 3.823547e+18 | Verificação: OK
+==14799== 
+==14799== I   refs:      116,238,019,771
+==14799== I1  misses:              1,576
+==14799== LLi misses:              1,569
+==14799== I1  miss rate:            0.00%
+==14799== LLi miss rate:            0.00%
+==14799== 
+==14799== D   refs:       54,506,899,944  (50,847,612,199 rd   + 3,659,287,745 wr)
+==14799== D1  misses:      3,635,957,135  ( 3,632,712,437 rd   +     3,244,698 wr)
+==14799== LLd misses:        455,051,347  (   453,871,074 rd   +     1,180,273 wr)
+==14799== D1  miss rate:             6.7% (           7.1%     +           0.1%  )
+==14799== LLd miss rate:             0.8% (           0.9%     +           0.0%  )
+==14799== 
+==14799== LL refs:         3,635,958,711  ( 3,632,714,013 rd   +     3,244,698 wr)
+==14799== LL misses:         455,052,916  (   453,872,643 rd   +     1,180,273 wr)
+==14799== LL miss rate:              0.3% (           0.3%     +           0.0%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_bloco_O0 1536 64
+==15204== Cachegrind, a cache and branch-prediction profiler
+==15204== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==15204== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==15204== Command: ./matmul_bloco_O0 1536 64
+==15204== 
+--15204-- warning: L3 cache found, using its data for the LL simulation.
+--15204-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--15204-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Blocado] N: 1536 | Bloco B: 64 | Tempo: 655.9767 s | GFLOPS: 0.01 | Checksum: 3.823547e+18 | Verificação: OK
+==15204== 
+==15204== I   refs:      153,731,607,701
+==15204== I1  misses:              1,577
+==15204== LLi misses:              1,570
+==15204== I1  miss rate:            0.00%
+==15204== LLi miss rate:            0.00%
+==15204== 
+==15204== D   refs:       69,714,200,655  (65,947,832,482 rd   + 3,766,368,173 wr)
+==15204== D1  misses:        468,617,615  (   467,732,210 rd   +       885,405 wr)
+==15204== LLd misses:          9,144,404  (     8,259,041 rd   +       885,363 wr)
+==15204== D1  miss rate:             0.7% (           0.7%     +           0.0%  )
+==15204== LLd miss rate:             0.0% (           0.0%     +           0.0%  )
+==15204== 
+==15204== LL refs:           468,619,192  (   467,733,787 rd   +       885,405 wr)
+==15204== LL misses:           9,145,974  (     8,260,611 rd   +       885,363 wr)
+==15204== LL miss rate:              0.0% (           0.0%     +           0.0%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_padrao_O3 512
+==16007== Cachegrind, a cache and branch-prediction profiler
+==16007== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==16007== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==16007== Command: ./matmul_padrao_O3 512
+==16007== 
+--16007-- warning: L3 cache found, using its data for the LL simulation.
+--16007-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--16007-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 512 | Tempo: 7.2376 s | GFLOPS: 0.04 | Checksum: 5.226394e+15 | Verificação: OK
+==16007== 
+==16007== I   refs:      947,731,346
+==16007== I1  misses:          1,565
+==16007== LLi misses:          1,537
+==16007== I1  miss rate:        0.00%
+==16007== LLi miss rate:        0.00%
+==16007== 
+==16007== D   refs:      271,508,448  (268,872,185 rd   + 2,636,263 wr)
+==16007== D1  misses:    134,972,819  (134,611,706 rd   +   361,113 wr)
+==16007== LLd misses:        100,300  (      1,398 rd   +    98,902 wr)
+==16007== D1  miss rate:        49.7% (       50.1%     +      13.7%  )
+==16007== LLd miss rate:         0.0% (        0.0%     +       3.8%  )
+==16007== 
+==16007== LL refs:       134,974,384  (134,613,271 rd   +   361,113 wr)
+==16007== LL misses:         101,837  (      2,935 rd   +    98,902 wr)
+==16007== LL miss rate:          0.0% (        0.0%     +       3.8%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_bloco_O3 512 64
+==16089== Cachegrind, a cache and branch-prediction profiler
+==16089== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==16089== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==16089== Command: ./matmul_bloco_O3 512 64
+==16089== 
+--16089-- warning: L3 cache found, using its data for the LL simulation.
+--16089-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--16089-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Blocado] N: 512 | Bloco B: 64 | Tempo: 3.3330 s | GFLOPS: 0.08 | Checksum: 5.226394e+15 | Verificação: OK
+==16089== 
+==16089== I   refs:      583,135,664
+==16089== I1  misses:          1,582
+==16089== LLi misses:          1,554
+==16089== I1  miss rate:        0.00%
+==16089== LLi miss rate:        0.00%
+==16089== 
+==16089== D   refs:      286,198,640  (214,583,995 rd   + 71,614,645 wr)
+==16089== D1  misses:     17,471,896  ( 17,372,921 rd   +     98,975 wr)
+==16089== LLd misses:        100,301  (      1,397 rd   +     98,904 wr)
+==16089== D1  miss rate:         6.1% (        8.1%     +        0.1%  )
+==16089== LLd miss rate:         0.0% (        0.0%     +        0.1%  )
+==16089== 
+==16089== LL refs:        17,473,478  ( 17,374,503 rd   +     98,975 wr)
+==16089== LL misses:         101,855  (      2,951 rd   +     98,904 wr)
+==16089== LL miss rate:          0.0% (        0.0%     +        0.1%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_padrao_O3 1024
+==16141== Cachegrind, a cache and branch-prediction profiler
+==16141== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==16141== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==16141== Command: ./matmul_padrao_O3 1024
+==16141== 
+--16141-- warning: L3 cache found, using its data for the LL simulation.
+--16141-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--16141-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 1024 | Tempo: 79.6827 s | GFLOPS: 0.03 | Checksum: 3.353782e+17 | Verificação: OK
+==16141== 
+==16141== I   refs:      7,548,417,411
+==16141== I1  misses:            1,571
+==16141== LLi misses:            1,563
+==16141== I1  miss rate:          0.00%
+==16141== LLi miss rate:          0.00%
+==16141== 
+==16141== D   refs:      2,159,603,056  (2,149,102,330 rd   + 10,500,726 wr)
+==16141== D1  misses:    1,077,932,436  (1,076,489,979 rd   +  1,442,457 wr)
+==16141== LLd misses:          919,506  (      394,658 rd   +    524,848 wr)
+==16141== D1  miss rate:          49.9% (         50.1%     +       13.7%  )
+==16141== LLd miss rate:           0.0% (          0.0%     +        5.0%  )
+==16141== 
+==16141== LL refs:       1,077,934,007  (1,076,491,550 rd   +  1,442,457 wr)
+==16141== LL misses:           921,069  (      396,221 rd   +    524,848 wr)
+==16141== LL miss rate:            0.0% (          0.0%     +        5.0%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_bloco_O3 1024 64
+==16469== Cachegrind, a cache and branch-prediction profiler
+==16469== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==16469== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==16469== Command: ./matmul_bloco_O3 1024 64
+==16469== 
+--16469-- warning: L3 cache found, using its data for the LL simulation.
+--16469-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--16469-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 26.4574 s | GFLOPS: 0.08 | Checksum: 3.353782e+17 | Verificação: OK
+==16469== 
+==16469== I   refs:      4,641,108,104
+==16469== I1  misses:            1,584
+==16469== LLi misses:            1,576
+==16469== I1  miss rate:          0.00%
+==16469== LLi miss rate:          0.00%
+==16469== 
+==16469== D   refs:      2,277,907,514  (1,714,534,391 rd   + 563,373,123 wr)
+==16469== D1  misses:      139,102,617  (  138,708,730 rd   +     393,887 wr)
+==16469== LLd misses:          911,445  (      517,601 rd   +     393,844 wr)
+==16469== D1  miss rate:           6.1% (          8.1%     +         0.1%  )
+==16469== LLd miss rate:           0.0% (          0.0%     +         0.1%  )
+==16469== 
+==16469== LL refs:         139,104,201  (  138,710,314 rd   +     393,887 wr)
+==16469== LL misses:           913,021  (      519,177 rd   +     393,844 wr)
+==16469== LL miss rate:            0.0% (          0.0%     +         0.1%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_padrao_O3 1536
+==16630== Cachegrind, a cache and branch-prediction profiler
+==16630== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==16630== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==16630== Command: ./matmul_padrao_O3 1536
+==16630== 
+--16630-- warning: L3 cache found, using its data for the LL simulation.
+--16630-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--16630-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 1536 | Tempo: 298.8478 s | GFLOPS: 0.02 | Checksum: 3.823547e+18 | Verificação: OK
+==16630== 
+==16630== I   refs:      25,439,382,630
+==16630== I1  misses:             1,570
+==16630== LLi misses:             1,562
+==16630== I1  miss rate:           0.00%
+==16630== LLi miss rate:           0.00%
+==16630== 
+==16630== D   refs:       7,274,952,141  (7,251,344,175 rd   + 23,607,966 wr)
+==16630== D1  misses:     3,635,957,140  (3,632,712,443 rd   +  3,244,697 wr)
+==16630== LLd misses:       455,051,356  (  453,871,083 rd   +  1,180,273 wr)
+==16630== D1  miss rate:           50.0% (         50.1%     +       13.7%  )
+==16630== LLd miss rate:            6.3% (          6.3%     +        5.0%  )
+==16630== 
+==16630== LL refs:        3,635,958,710  (3,632,714,013 rd   +  3,244,697 wr)
+==16630== LL misses:        455,052,918  (  453,872,645 rd   +  1,180,273 wr)
+==16630== LL miss rate:             1.4% (          1.4%     +        5.0%  )
+valgrind --tool=cachegrind --cache-sim=yes ./matmul_bloco_O3 1536 64
+==17727== Cachegrind, a cache and branch-prediction profiler
+==17727== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==17727== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==17727== Command: ./matmul_bloco_O3 1536 64
+==17727== 
+--17727-- warning: L3 cache found, using its data for the LL simulation.
+--17727-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--17727-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Blocado] N: 1536 | Bloco B: 64 | Tempo: 89.1059 s | GFLOPS: 0.08 | Checksum: 3.823547e+18 | Verificação: OK
+==17727== 
+==17727== I   refs:      15,637,839,256
+==17727== I1  misses:             1,588
+==17727== LLi misses:             1,580
+==17727== I1  miss rate:           0.00%
+==17727== LLi miss rate:           0.00%
+==17727== 
+==17727== D   refs:       7,675,110,459  (5,784,381,545 rd   + 1,890,728,914 wr)
+==17727== D1  misses:       468,728,217  (  467,842,810 rd   +       885,407 wr)
+==17727== LLd misses:         9,144,415  (    8,259,049 rd   +       885,366 wr)
+==17727== D1  miss rate:            6.1% (          8.1%     +           0.0%  )
+==17727== LLd miss rate:            0.1% (          0.1%     +           0.0%  )
+==17727== 
+==17727== LL refs:          468,729,805  (  467,844,398 rd   +       885,407 wr)
+==17727== LL misses:          9,145,995  (    8,260,629 rd   +       885,366 wr)
+==17727== LL miss rate:             0.0% (          0.0%     +           0.0%  )
+=== Item 4: escalabilidade Pthreads (N=2048, -O3) ===
+[Matmul Pthreads] N: 2048 | Threads: 1 | Tempo: 60.2599 s | GFLOPS: 0.29 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 1 | Bloco B: 64 | Tempo: 4.4689 s | GFLOPS: 3.84 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 2 | Tempo: 27.7198 s | GFLOPS: 0.62 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 2 | Bloco B: 64 | Tempo: 2.2601 s | GFLOPS: 7.60 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 4 | Tempo: 13.7571 s | GFLOPS: 1.25 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 4 | Bloco B: 64 | Tempo: 1.1560 s | GFLOPS: 14.86 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 8 | Tempo: 10.5983 s | GFLOPS: 1.62 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 8 | Bloco B: 64 | Tempo: 0.8331 s | GFLOPS: 20.62 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 16 | Tempo: 11.0643 s | GFLOPS: 1.55 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 16 | Bloco B: 64 | Tempo: 0.8110 s | GFLOPS: 21.18 | Checksum: 2.149269e+19 | Verificação: OK
+
+Pronto. CSVs e logs em results/. Gere tabelas e gráficos com: python3 plot.py

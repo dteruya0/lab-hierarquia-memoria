@@ -1,0 +1,12 @@
+gcc -O0 -Wall -Wextra -std=c11 varredura_linha.c -o varredura_linha_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 varredura_coluna.c -o varredura_coluna_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_padrao.c -o matmul_padrao_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_bloco.c -o matmul_bloco_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_pthreads.c -o matmul_pthreads_O0 -pthread
+gcc -O0 -Wall -Wextra -std=c11 matmul_pthreads_bloco.c -o matmul_pthreads_bloco_O0 -pthread
+gcc -O3 -Wall -Wextra -std=c11 varredura_linha.c -o varredura_linha_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 varredura_coluna.c -o varredura_coluna_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_padrao.c -o matmul_padrao_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_bloco.c -o matmul_bloco_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_pthreads.c -o matmul_pthreads_O3 -pthread
+gcc -O3 -Wall -Wextra -std=c11 matmul_pthreads_bloco.c -o matmul_pthreads_bloco_O3 -pthread

@@ -1,0 +1,10 @@
+[Matmul Pthreads] N: 2048 | Threads: 1 | Tempo: 60.2599 s | GFLOPS: 0.29 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 1 | Bloco B: 64 | Tempo: 4.4689 s | GFLOPS: 3.84 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 2 | Tempo: 27.7198 s | GFLOPS: 0.62 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 2 | Bloco B: 64 | Tempo: 2.2601 s | GFLOPS: 7.60 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 4 | Tempo: 13.7571 s | GFLOPS: 1.25 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 4 | Bloco B: 64 | Tempo: 1.1560 s | GFLOPS: 14.86 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 8 | Tempo: 10.5983 s | GFLOPS: 1.62 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 8 | Bloco B: 64 | Tempo: 0.8331 s | GFLOPS: 20.62 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads] N: 2048 | Threads: 16 | Tempo: 11.0643 s | GFLOPS: 1.55 | Checksum: 2.149269e+19 | Verificação: OK
+[Matmul Pthreads Bloco] N: 2048 | Threads: 16 | Bloco B: 64 | Tempo: 0.8110 s | GFLOPS: 21.18 | Checksum: 2.149269e+19 | Verificação: OK

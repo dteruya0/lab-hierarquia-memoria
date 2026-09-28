@@ -1,0 +1,25 @@
+==14270== Cachegrind, a cache and branch-prediction profiler
+==14270== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==14270== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14270== Command: ./matmul_padrao_O0 512
+==14270== 
+--14270-- warning: L3 cache found, using its data for the LL simulation.
+--14270-- warning: specified LL cache: line_size 64  assoc 16  total_size 12,582,912
+--14270-- warning: simulated LL cache: line_size 64  assoc 24  total_size 12,582,912
+[Matmul Padrão] N: 512 | Tempo: 23.6728 s | GFLOPS: 0.01 | Checksum: 5.226394e+15 | Verificação: OK
+==14270== 
+==14270== I   refs:      4,325,572,412
+==14270== I1  misses:            1,573
+==14270== LLi misses:            1,542
+==14270== I1  miss rate:          0.00%
+==14270== LLi miss rate:          0.00%
+==14270== 
+==14270== D   refs:      2,029,846,877  (1,891,680,465 rd   + 138,166,412 wr)
+==14270== D1  misses:      134,972,814  (  134,611,700 rd   +     361,114 wr)
+==14270== LLd misses:          100,295  (        1,393 rd   +      98,902 wr)
+==14270== D1  miss rate:           6.6% (          7.1%     +         0.3%  )
+==14270== LLd miss rate:           0.0% (          0.0%     +         0.1%  )
+==14270== 
+==14270== LL refs:         134,974,387  (  134,613,273 rd   +     361,114 wr)
+==14270== LL misses:           101,837  (        2,935 rd   +      98,902 wr)
+==14270== LL miss rate:            0.0% (          0.0%     +         0.1%  )

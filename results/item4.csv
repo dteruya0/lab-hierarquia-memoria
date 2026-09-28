@@ -1,0 +1,11 @@
+versao,T,tempo,gflops,verif
+pthreads,1,60.2599,0.29,OK
+pthreads_bloco,1,4.4689,3.84,OK
+pthreads,2,27.7198,0.62,OK
+pthreads_bloco,2,2.2601,7.60,OK
+pthreads,4,13.7571,1.25,OK
+pthreads_bloco,4,1.1560,14.86,OK
+pthreads,8,10.5983,1.62,OK
+pthreads_bloco,8,0.8331,20.62,OK
+pthreads,16,11.0643,1.55,OK
+pthreads_bloco,16,0.8110,21.18,OK

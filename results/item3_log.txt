@@ -1,0 +1,20 @@
+[Matmul Padrão] N: 512 | Tempo: 0.8719 s | GFLOPS: 0.31 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Blocado] N: 512 | Bloco B: 64 | Tempo: 0.6040 s | GFLOPS: 0.44 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Padrão] N: 1024 | Tempo: 7.2545 s | GFLOPS: 0.30 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 4.7501 s | GFLOPS: 0.45 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Padrão] N: 1536 | Tempo: 36.9861 s | GFLOPS: 0.20 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Blocado] N: 1536 | Bloco B: 64 | Tempo: 15.9445 s | GFLOPS: 0.45 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Padrão] N: 512 | Tempo: 0.2974 s | GFLOPS: 0.90 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Blocado] N: 512 | Bloco B: 64 | Tempo: 0.0745 s | GFLOPS: 3.60 | Checksum: 5.226394e+15 | Verificação: OK
+[Matmul Padrão] N: 1024 | Tempo: 2.5354 s | GFLOPS: 0.85 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 0.6016 s | GFLOPS: 3.57 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Padrão] N: 1536 | Tempo: 17.9263 s | GFLOPS: 0.40 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Blocado] N: 1536 | Bloco B: 64 | Tempo: 2.0693 s | GFLOPS: 3.50 | Checksum: 3.823547e+18 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 8 | Tempo: 0.9396 s | GFLOPS: 2.29 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 16 | Tempo: 0.7218 s | GFLOPS: 2.98 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 32 | Tempo: 0.6569 s | GFLOPS: 3.27 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 64 | Tempo: 0.6679 s | GFLOPS: 3.22 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 128 | Tempo: 0.6318 s | GFLOPS: 3.40 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 256 | Tempo: 0.5590 s | GFLOPS: 3.84 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 512 | Tempo: 0.5209 s | GFLOPS: 4.12 | Checksum: 3.353782e+17 | Verificação: OK
+[Matmul Blocado] N: 1024 | Bloco B: 1024 | Tempo: 0.6239 s | GFLOPS: 3.44 | Checksum: 3.353782e+17 | Verificação: OK
